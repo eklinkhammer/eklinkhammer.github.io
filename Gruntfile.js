@@ -511,11 +511,11 @@ module.exports = function (grunt) {
     'ngAnnotate',
     'copy:dist',
     'cdnify',
-   // 'cssmin',
+    'cssmin',
    // 'uglify',
     'filerev',
-   // 'usemin',
-   // 'htmlmin'
+    'usemin',
+    'htmlmin'
   ]);
 
   grunt.registerTask('dev', [
