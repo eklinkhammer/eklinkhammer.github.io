@@ -36,6 +36,21 @@ angular
         controller: 'ContactCtrl',
         controllerAs: 'contact'
        })
+      .when('/links', {
+        templateUrl: '/views/links.html',
+        controller: 'LinksCtrl',
+        controllerAs: 'links'
+      })
+      .when('/research', {
+        templateUrl: '/views/research.html',
+        controller: 'ResearchCtrl',
+        controllerAs: 'research'
+      })
+      .when('/software', {
+        templateUrl: '/views/software.html',
+        controller: 'SoftwareCtrl',
+        controllerAs: 'software'
+      })
       .otherwise({
         redirectTo: '/'
       });

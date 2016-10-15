@@ -8,7 +8,7 @@
  * Controller of the eklinkhammergithubioApp
  */
 angular.module('eklinkhammergithubioApp')
-  .controller('AboutCtrl', function () {
+  .controller('ContactCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
