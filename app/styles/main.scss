@@ -89,3 +89,47 @@ body {
     border-bottom: 0;
   }
 }
+
+
+// Custom header CSS
+.header #picture-title {
+  display: table;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.header #fancy-title {
+  float: left;
+  height: 100%;
+  width: 75%;
+}
+
+
+.header #buffer {
+  height: 10%;
+  width: 100%;
+}
+
+.header #main-title {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header h1 {
+  padding-left: 20px;
+  text-align: left;
+  font-size:50px;
+}
+
+.header #subtitle {
+  height: 35%;
+  width: 100%;
+}
+
+.header h2 {
+  padding-left: 20px;
+  text-align: left;
+}

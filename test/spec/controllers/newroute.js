@@ -1,23 +1,23 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: NewrouteCtrl', function () {
 
   // load the controller's module
   beforeEach(module('eklinkhammergithubioApp'));
-  beforeEach(module('ui.bootstrap'));
-  var MainCtrl,
+
+  var NewrouteCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    NewrouteCtrl = $controller('NewrouteCtrl', {
       $scope: scope
       // place here mocked dependencies
     });
   }));
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.awesomeThings.length).toBe(4);
+    expect(NewrouteCtrl.awesomeThings.length).toBe(3);
   });
 });

@@ -19,7 +19,7 @@ module.exports = function (grunt) {
     cdnify: 'grunt-google-cdn'
   });
 
-  grunt.loadNpmTasks('grunt-build-control');;
+  grunt.loadNpmTasks('grunt-build-control');
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -518,6 +518,16 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
+  grunt.registerTask('dev', [
+    'clean:dist',
+    'wiredep',
+    'concurrent:dist',
+    'postcss',
+    'ngtemplates',
+    'concat',
+    'ngAnnotate',
+    'copy:dist',
+  ]);
   grunt.registerTask('default', [
     'newer:jshint',
     'newer:jscs',
