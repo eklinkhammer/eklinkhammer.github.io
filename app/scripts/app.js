@@ -33,22 +33,22 @@ angular
         controllerAs: 'about'
       })
       .when('/contact', {
-        templateUrl: '/views/contact.html',
+        templateUrl: 'views/contact.html',
         controller: 'ContactCtrl',
         controllerAs: 'contact'
        })
       .when('/links', {
-        templateUrl: '/views/links.html',
+        templateUrl: 'views/links.html',
         controller: 'LinksCtrl',
         controllerAs: 'links'
       })
       .when('/research', {
-        templateUrl: '/views/research.html',
+        templateUrl: 'views/research.html',
         controller: 'ResearchCtrl',
         controllerAs: 'research'
       })
       .when('/software', {
-        templateUrl: '/views/software.html',
+        templateUrl: 'views/software.html',
         controller: 'SoftwareCtrl',
         controllerAs: 'software'
       })
