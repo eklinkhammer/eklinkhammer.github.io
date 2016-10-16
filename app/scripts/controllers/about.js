@@ -8,10 +8,4 @@
  * Controller of the eklinkhammergithubioApp
  */
 angular.module('eklinkhammergithubioApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('AboutCtrl', function () {});
