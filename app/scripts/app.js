@@ -18,7 +18,6 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'templates'
   ])
   .config(function ($routeProvider) {
     $routeProvider
