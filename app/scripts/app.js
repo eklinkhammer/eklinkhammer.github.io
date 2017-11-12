@@ -63,5 +63,5 @@ angular
 // In nav bar, only most recently selected item is highlighted
 $(".nav a").on("click", function() {
   $(".nav").find(".active").removeClass("active");
-  $(this).parent().addClass("active")
+  $(this).parent().addClass("active");
 });

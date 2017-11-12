@@ -15,7 +15,7 @@ angular.module('eklinkhammergithubioApp')
       'Karma',
       'SitePoint'
     ];
-  })
+  });
 
 function HeaderCtrl($scope) {
   $scope.header = {name: "header.html", url: "header.html"};
