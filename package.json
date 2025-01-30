@@ -20,6 +20,8 @@
   "description": "",
   "dependencies": {
     "@tailwindcss/cli": "^4.0.1",
+    "chokidar": "^4.0.3",
+    "express": "^4.21.2",
     "npx": "^10.2.2",
     "tailwind": "^4.0.0"
   },

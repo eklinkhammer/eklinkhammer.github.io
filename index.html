@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTMX + Tailwind</title>
-    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
-	<link rel="stylesheet" href="src/output.css">
-</head>
-<body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>HTMX + Tailwind</title>
+		<script src="https://unpkg.com/htmx.org@1.9.6"></script>
+		<link rel="stylesheet" href="src/output.css">
+	</head>
+	<body class="min-h-screen flex flex-col bg-gray-100">
+		<header class="bg-purple-950 text-white p-6 fixed top-0 left-0 w-full">
+			<div class="max-w-4xl mx-auto">
+				<div class="text-left text-2xl font-bold">
+					Eric Klinkhammer
+				</div>
+				<div class="flex gap-4 mt-4">
+					Links to various sections go here
+				</div>
+			</div>
+		</header>
+
+		<main class="flex-grow mt-30 p-6">
+
+		<h1 class="text-3xl font-bold underline">
+			Hello world!
+		</h1>
+		</main>
+
+		<footer class="bg-purple-950 text-white p-6 mt-10 fixed bottom-0 left-0 w-full">
+			<div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center">
+
+				<!-- Left: Copyright -->
+				<div class="text-sm">
+					© 2025 My Website. All rights reserved. Built with HTMX and Tailwind.
+				</div>
+				<!-- Right: Social Icons -->
+				<div>
+					Social icons go here
+				</div>
+		</footer>
+	</body>
 </html>
 
