@@ -1,0 +1,29 @@
+{
+  "name": "eklinkhammer.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eklinkhammer/eklinkhammer.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/eklinkhammer/eklinkhammer.github.io/issues"
+  },
+  "homepage": "https://github.com/eklinkhammer/eklinkhammer.github.io#readme",
+  "description": "",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.1",
+    "npx": "^10.2.2",
+    "tailwind": "^4.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.0.1"
+  }
+}
