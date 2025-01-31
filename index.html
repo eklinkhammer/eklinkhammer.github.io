@@ -5,28 +5,52 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>HTMX + Tailwind</title>
 		<script src="https://unpkg.com/htmx.org@1.9.6"></script>
+		<script defer>
+			function navigateHTMX(select) {
+				const selectedPage = select.value;
+				if (selectedPage) {
+					htmx.ajax("GET", selectedPage, "#content");
+
+				// Update the browser URL
+					history.pushState(null, "", selectedPage);
+					// select.setAttribute("hx-get", selectedPage);
+					// select.setAttribute("hx-push-url", selectedPage);
+					//htmx.process(select);
+				}
+			}
+		</script>
 		<link rel="stylesheet" href="src/output.css">
 	</head>
 	<body class="min-h-screen flex flex-col bg-gray-100">
-		<header class="bg-purple-950 text-white p-6 fixed top-0 left-0 w-full">
+		<header class="bg-gradient-to-r bg-purple-900 via-purple-950 to-[#1A0B24] text-white p-6 fixed top-0 left-0 w-full">
 			<div class="max-w-4xl mx-auto">
-				<div class="text-left text-2xl font-bold">
-					Eric Klinkhammer
+				<div>
+					<div class="text-left text-4xl font-bold tracking-wide drop-shadow-lg">
+						Eric Klinkhammer
+					</div>
+					<div class ="text-left text-l font-semibold tracking-wide drop-shadow-lg">
+						I write code, build robots, and make cheese with robots.
+					</div>
 				</div>
 				<div class="flex gap-4 mt-4">
-					Links to various sections go here
+					<select id="nav-dropdown" class="bg-purple-700 text-white px-4 py-2 rounded"
+											  hx-get="" hx-target"#content" hx-push-url="" onchange="navigateHTMX(this)">
+						<option value="">My Active Projects</option>
+						<option value="cheesemaking.html">Cheesemaking Robots</option>
+						<option value="splendor.html">Splendor AI</option>
+					</select>
 				</div>
 			</div>
 		</header>
 
-		<main class="flex-grow mt-30 p-6">
+		<main id="content" class="flex-grow mt-30 p-6 bg-gradient-to-r bg-gray-700 via gray-500 to-gray-700">
 
-		<h1 class="text-3xl font-bold underline">
-			Hello world!
-		</h1>
+			<h1 class="text-3xl font-bold underline">
+				Hello world!
+			</h1>
 		</main>
 
-		<footer class="bg-purple-950 text-white p-6 mt-10 fixed bottom-0 left-0 w-full">
+		<footer class="bg-gradient-to-r bg-purple-900 via-purple-950 to-[#1A0B24] text-white p-6 fixed bottom-0 left-0 w-full">
 			<div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center">
 
 				<!-- Left: Copyright -->
