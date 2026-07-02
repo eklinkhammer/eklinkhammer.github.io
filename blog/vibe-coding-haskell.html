@@ -1,0 +1,192 @@
+<!-- Standalone redirect guard -->
+<script>
+  if (!document.getElementById('site-shell')) {
+    window.location.replace('/?page=/blog/vibe-coding-haskell');
+  }
+</script>
+
+<article class="py-8 max-w-3xl">
+  <a hx-get="pages/blog.html" hx-target="#content" hx-push-url="/blog"
+     class="text-purple-400 hover:text-purple-300 text-sm mb-6 inline-block cursor-pointer">
+    &larr; Back to Blog
+  </a>
+  <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Vibe Coding in Haskell</h1>
+  <p class="text-sm text-gray-500 mb-8">July 2026</p>
+
+  <div class="space-y-4 text-gray-300 leading-relaxed">
+    <p>
+      I have long assumed that AI is like a junior engineer at a corporate company&mdash;relatively
+      competent, oblivious to its own mistakes, and potentially willing to straight up lie.
+    </p>
+    <p>
+      This isn't a criticism. Junior engineers are useful. They write a lot of code, they move
+      fast, and they have a reasonable understanding of how things should work. The problem is
+      what happens when they're wrong. They don't know what they don't know. They'll introduce
+      a subtle state mutation and not realize it breaks an invariant three modules away. They'll
+      "fix" a bug by suppressing the symptom. They'll reach for the quick solution that works
+      today and costs you a week next quarter.
+    </p>
+    <p>
+      Getting junior engineers to not wreck your codebase is part mentorship and part
+      limiting their ability to mess things up.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">The Guardrails That Actually Work</h2>
+    <p>
+      Types. Linters. Tests. Style guides. Tests. Aggressive compilers. These things make
+      you go faster&mdash;not because they prevent you from writing code, but because they
+      resist the quick and easy fixes that incur so much tech debt, and they prevent
+      regression. A strict type system means you can't quietly pass the wrong thing to a
+      function. A comprehensive test suite means you find out immediately when new code
+      breaks old behavior. An aggressive compiler means warnings become errors, dead code
+      gets flagged, and incomplete pattern matches don't ship.
+    </p>
+    <p>
+      None of these require the engineer to be good. They work precisely because they don't
+      trust the engineer to be good. They're structural, not aspirational.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">The Theory</h2>
+    <p>
+      If the failure modes of AI are similar to the failure modes of junior engineers&mdash;confident
+      incorrectness, silent regression, plausible-looking nonsense&mdash;then the same
+      structural guardrails that keep junior engineers in line should keep AI in line too.
+    </p>
+    <p>
+      So I vibe coded a board game in Haskell to test the theory.
+    </p>
+    <p>
+      <a href="https://github.com/eklinkhammer/splendor" target="_blank"
+         class="text-purple-400 hover:text-purple-300">Splendor</a> is a full implementation
+      of the board game&mdash;a pure functional game engine, a Monte Carlo Tree Search AI,
+      an HTTP/WebSocket server for real-time multiplayer, SQLite persistence, and a React
+      frontend. Around 10,000 lines of Haskell across three packages, with 97 of the 130-some
+      commits authored by Claude. It's deployed and running in production.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">Why Haskell</h2>
+    <p>
+      Haskell is the strictest mainstream-adjacent language I know. The compiler is opinionated
+      and loud. The type system is expressive enough that you can encode business rules directly
+      into types. Side effects are tracked. Purity is the default.
+    </p>
+    <p>
+      Consider the game engine's core step function. It returns a sum type:
+    </p>
+    <pre class="bg-gray-900 border border-gray-800 rounded-xl p-4 text-sm text-gray-300 overflow-x-auto"><code>data StepResult
+  = Advanced GameState
+  | NeedGemReturn GameState Int
+  | NeedNobleChoice GameState [Noble]
+  | GameOver GameState GameResult
+  | StepError ActionError</code></pre>
+    <p>
+      Every possible outcome of applying an action is explicitly represented. You can't
+      forget to handle the case where a player needs to return gems after taking too many.
+      You can't silently ignore a game-over condition. The compiler enforces exhaustive
+      pattern matching&mdash;if you add a new case, every call site that doesn't handle it
+      becomes a compile error.
+    </p>
+    <p>
+      Errors work the same way:
+    </p>
+    <pre class="bg-gray-900 border border-gray-800 rounded-xl p-4 text-sm text-gray-300 overflow-x-auto"><code>data ActionError
+  = NotYourTurn
+  | InvalidGemTake Text
+  | CardNotFound CardId
+  | CannotAfford CardId
+  | ReserveLimit
+  | InvalidPayment Text
+  | TokenLimit
+  | GemReturnRequired
+  | GameNotInProgress
+  | InvalidState Text</code></pre>
+    <p>
+      No stringly-typed error messages. No error codes. Every failure mode is a named
+      constructor. When the AI generates code that validates an action, it can't return
+      a generic "something went wrong"&mdash;it has to pick a specific, typed error case
+      that the rest of the system knows how to handle.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">What the Compiler Catches</h2>
+    <p>
+      The project compiles with <code class="text-purple-400">-Wall -Wcompat</code>&mdash;all
+      warnings enabled, with forward-compatibility checks. In practice, this means the
+      compiler catches:
+    </p>
+    <ul class="list-disc list-inside space-y-2 pl-2">
+      <li><strong class="text-white">Incomplete pattern matches</strong> &mdash; if the
+          AI handles three of five cases in a sum type, the build fails</li>
+      <li><strong class="text-white">Unused bindings</strong> &mdash; dead code left
+          behind from a refactor gets flagged immediately</li>
+      <li><strong class="text-white">Type mismatches</strong> &mdash; passing a
+          <code class="text-purple-400">GemCollection</code> where a
+          <code class="text-purple-400">GemTake</code> is expected is a compile error,
+          even though both relate to gems</li>
+      <li><strong class="text-white">Missing fields</strong> &mdash; constructing a record
+          without all fields is an error, not a runtime null</li>
+      <li><strong class="text-white">Purity violations</strong> &mdash; a function typed
+          as pure can't sneak in IO, so the game engine stays deterministic</li>
+    </ul>
+    <p>
+      Every one of these is a category of bug that AI is particularly prone to. The model
+      doesn't "forget" to handle a case because it's lazy&mdash;it forgets because it
+      doesn't have the full picture of every call site. The compiler does.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">What the Tests Catch</h2>
+    <p>
+      The test suite is around 6,400 lines&mdash;nearly twice the size of the source code.
+      That ratio is deliberate. The types catch structural errors, but they can't catch
+      logical errors. You need tests for that.
+    </p>
+    <p>
+      A test that verifies you can't buy a card you can't afford won't stop the AI from
+      writing incorrect gem subtraction logic. But it will stop that logic from shipping.
+      And because the tests exist before the AI writes new code, they function as a
+      specification: here is what the system does, don't break it.
+    </p>
+    <p>
+      The AI's workflow became: write code, run the build, fix type errors, run the tests,
+      fix logical errors. Each cycle narrowed the space of possible mistakes. By the time
+      human review happened, most of the mechanical errors were already gone.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">It Worked</h2>
+    <p>
+      97 AI-authored commits. Three Haskell packages (game engine, AI agent, server). A
+      Monte Carlo Tree Search implementation. WebSocket multiplayer. SQLite persistence with
+      game restore. CI/CD with GitHub Actions. Deployed to production.
+    </p>
+    <p>
+      I don't think this would have gone as well in Python or JavaScript. Not because the
+      AI writes worse code in those languages, but because there's less structural resistance
+      to bad code. In a dynamically typed language, the AI can return the wrong shape of
+      data and you won't know until runtime. It can mutate shared state and the tests might
+      not cover that path. It can introduce a subtle bug that only manifests under specific
+      game conditions that nobody thought to test.
+    </p>
+    <p>
+      In Haskell, the compiler is a tireless, humorless reviewer that catches entire
+      categories of mistakes before the code ever runs. That's exactly what you want
+      standing between an AI and your codebase.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">The Takeaway</h2>
+    <p>
+      The counterintuitive lesson: the more deterministic checks you put in the AI's way,
+      the faster you go. Every guardrail feels like friction&mdash;another compile cycle,
+      another test run, another type error to fix. But each one collapses the space of
+      possible mistakes before they propagate. Without them, you go fast for twenty minutes
+      and then spend an hour debugging something the AI introduced three changes ago.
+      With them, every cycle produces code you can actually trust.
+    </p>
+    <p>
+      The tools we built to manage human fallibility&mdash;type systems, test suites,
+      strict compilers&mdash;turn out to be exactly the tools we need to manage AI
+      fallibility. The same structural constraints that make codebases resilient to
+      junior engineer mistakes make them resilient to AI mistakes. If you're going to
+      let an AI write a significant amount of your code, give it a language and a toolchain
+      that won't let it cut corners.
+    </p>
+  </div>
+</article>
