@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#1a1a2e"/>
+  <rect x="300" y="150" width="200" height="300" rx="20" fill="none" stroke="#6d28d9" stroke-width="3" opacity="0.6"/>
+  <rect x="320" y="180" width="160" height="240" rx="8" fill="#7c3aed" opacity="0.15"/>
+  <circle cx="400" cy="300" r="40" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
+  <circle cx="400" cy="300" r="4" fill="#a78bfa"/>
+  <text x="400" y="420" text-anchor="middle" fill="#6b7280" font-family="system-ui" font-size="24">Mi-Pueblo</text>
+  <text x="400" y="455" text-anchor="middle" fill="#4b5563" font-family="system-ui" font-size="16">Screenshot coming soon</text>
+</svg>

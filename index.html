@@ -84,79 +84,103 @@
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="min-h-screen flex flex-col justify-center px-6 py-24 bg-gray-900">
-      <div class="max-w-7xl mx-auto w-full">
+    <section id="projects" class="py-24">
+      <div class="max-w-7xl mx-auto px-6 mb-16">
         <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Projects</h2>
-        <p class="text-lg text-gray-400 mb-10">Things I'm building or have built.</p>
+        <p class="text-lg text-gray-400">Things I'm building or have built.</p>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-          <!-- Splendor Card -->
-          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8
-                      hover:border-purple-700 transition-colors">
-            <h3 class="text-2xl font-semibold text-white mb-3">Splendor</h3>
-            <div class="flex flex-wrap gap-2 mb-4">
+      <!-- Splendor: image left (light), text right (dark) -->
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-1/2 bg-gray-800 flex items-center justify-center p-8">
+          <img src="images/splendor.png" alt="Splendor game screenshot"
+               class="w-full max-w-xl rounded-lg">
+        </div>
+        <div class="md:w-1/2 bg-black flex items-center">
+          <div class="p-10 md:p-16">
+            <h3 class="text-3xl font-semibold text-white mb-4">Splendor</h3>
+            <div class="flex flex-wrap gap-2 mb-6">
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Haskell</span>
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">React</span>
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">TypeScript</span>
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Docker</span>
             </div>
-            <p class="text-gray-400 text-base leading-relaxed">
+            <p class="text-gray-400 text-lg leading-relaxed">
               Game engine and web client for the Splendor board game. Multiplayer online
               play with lobbies and invite sessions. Haskell backend with a React TypeScript
               frontend, containerized with Docker.
             </p>
           </div>
+        </div>
+      </div>
 
-          <!-- EvoFactory Card -->
-          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8
-                      hover:border-purple-700 transition-colors">
-            <h3 class="text-2xl font-semibold text-white mb-3">EvoFactory</h3>
-            <div class="flex flex-wrap gap-2 mb-4">
+      <!-- EvoFactory: text left (dark), image right (light) -->
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-1/2 bg-gray-900 flex items-center order-2 md:order-1">
+          <div class="p-10 md:p-16">
+            <h3 class="text-3xl font-semibold text-white mb-4">EvoFactory</h3>
+            <div class="flex flex-wrap gap-2 mb-6">
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Godot 4</span>
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Rust</span>
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">GDExtension</span>
             </div>
-            <p class="text-gray-400 text-base leading-relaxed">
+            <p class="text-gray-400 text-lg leading-relaxed">
               Real-time cell biology sim. Control a living cell, absorb resources, build
               organelles, and evolve through a tech tree. Built with Godot 4 and Rust
               via GDExtension.
             </p>
           </div>
+        </div>
+        <div class="md:w-1/2 bg-gray-800 flex items-center justify-center p-8 order-1 md:order-2">
+          <img src="images/evofactory.svg" alt="EvoFactory placeholder"
+               class="w-full max-w-xl rounded-lg">
+        </div>
+      </div>
 
-          <!-- Mi-Pueblo Card -->
-          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8
-                      hover:border-purple-700 transition-colors">
-            <h3 class="text-2xl font-semibold text-white mb-3">Mi-Pueblo</h3>
-            <div class="flex flex-wrap gap-2 mb-4">
+      <!-- Mi-Pueblo: image left (light), text right (dark) -->
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-1/2 bg-gray-800 flex items-center justify-center p-8">
+          <img src="images/mi-pueblo.svg" alt="Mi-Pueblo placeholder"
+               class="w-full max-w-xl rounded-lg">
+        </div>
+        <div class="md:w-1/2 bg-black flex items-center">
+          <div class="p-10 md:p-16">
+            <h3 class="text-3xl font-semibold text-white mb-4">Mi-Pueblo</h3>
+            <div class="flex flex-wrap gap-2 mb-6">
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Elixir</span>
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Phoenix</span>
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Flutter</span>
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">PostGIS</span>
             </div>
-            <p class="text-gray-400 text-base leading-relaxed">
+            <p class="text-gray-400 text-lg leading-relaxed">
               Family location sharing app with geofencing, group management, and
               multi-language support. Elixir/Phoenix backend, Flutter mobile client,
               PostGIS for spatial data.
             </p>
           </div>
+        </div>
+      </div>
 
-          <!-- VoltVoice Card -->
-          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8
-                      hover:border-purple-700 transition-colors">
-            <h3 class="text-2xl font-semibold text-white mb-3">VoltVoice.io</h3>
-            <div class="flex flex-wrap gap-2 mb-4">
+      <!-- VoltVoice: text left (dark), image right (light) -->
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-1/2 bg-gray-900 flex items-center order-2 md:order-1">
+          <div class="p-10 md:p-16">
+            <h3 class="text-3xl font-semibold text-white mb-4">VoltVoice.io</h3>
+            <div class="flex flex-wrap gap-2 mb-6">
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">React</span>
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Go</span>
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Lightning</span>
               <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">BTCPay</span>
             </div>
-            <p class="text-gray-400 text-base leading-relaxed">
+            <p class="text-gray-400 text-lg leading-relaxed">
               Bitcoin donation platform for streamers via BTCPay Server and Lightning
               Network. React/Vite frontend, Go/Gin backend, fully self-custody.
             </p>
           </div>
-
+        </div>
+        <div class="md:w-1/2 bg-gray-800 flex items-center justify-center p-8 order-1 md:order-2">
+          <img src="images/voltvoice.svg" alt="VoltVoice placeholder"
+               class="w-full max-w-xl rounded-lg">
         </div>
       </div>
     </section>
