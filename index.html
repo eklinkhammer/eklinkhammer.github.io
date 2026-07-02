@@ -6,6 +6,10 @@
   <title>Eric Klinkhammer</title>
   <meta name="description" content="Software engineer, roboticist, and cheesemaker.">
   <link rel="stylesheet" href="src/output.css">
+  <style>
+    .card-lift { transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+    .card-lift:hover { transform: translateY(-0.5rem); }
+  </style>
   <script src="https://unpkg.com/htmx.org@1.9.6"></script>
 </head>
 <body id="site-shell" class="min-h-screen flex flex-col bg-gray-950 text-gray-300">
@@ -86,43 +90,62 @@
     <!-- Projects -->
     <section id="projects" class="py-24">
       <div class="max-w-7xl mx-auto px-6 mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Projects</h2>
-        <p class="text-lg text-gray-400">Things I'm building or have built.</p>
+        <h2 class="text-5xl md:text-7xl font-bold text-white mb-4 text-center">Projects</h2>
+        <p class="text-xl text-gray-400 mb-8 text-center">Things I'm building or have built.</p>
+        <hr class="border-t-4 border-purple-600">
       </div>
 
       <!-- Splendor: image left (light), text right (dark) -->
       <div class="flex flex-col md:flex-row" style="min-height: 44rem">
-        <div class="md:w-1/2 bg-gray-800 flex items-center justify-center p-4">
+        <div class="md:w-3/5 bg-gray-800 flex items-center justify-center p-2">
           <img src="images/splendor.png" alt="Splendor game screenshot"
                class="w-full rounded-lg">
         </div>
-        <div class="md:w-1/2 bg-black flex items-center">
+        <div class="md:w-2/5 bg-black flex items-center">
           <div class="p-10 md:p-16 flex flex-col justify-between h-full w-full">
             <!-- Description -->
             <div class="mb-8">
-              <h3 class="text-5xl font-semibold text-white mb-6">Splendor</h3>
-              <p class="text-gray-400 text-2xl leading-relaxed">
-                A full implementation of the Renaissance-era gem trading board game.
-                Collect gems, purchase development cards, and attract nobles to earn
-                prestige points. Built with a Haskell game engine backend serving a
-                React TypeScript web client, with multiplayer lobbies, invite sessions,
-                and AI opponents. Fully containerized with Docker.
-              </p>
+              <h3 class="text-5xl font-semibold text-white mb-6 text-center">Splendor</h3>
+              <div class="rounded-2xl p-8 shadow-lg border border-gray-700 hover:border-purple-500 card-lift" style="background-color: #1a1a24">
+                <p class="text-gray-400 text-2xl leading-relaxed">
+                  A full implementation of the Renaissance-era gem trading board game.
+                  Collect gems, purchase development cards, and attract nobles to earn
+                  prestige points. Built with a Haskell game engine backend serving a
+                  React TypeScript web client, with multiplayer lobbies, invite sessions,
+                  and AI opponents. Fully containerized with Docker.
+                </p>
+              </div>
             </div>
 
-            <!-- Link + Skills row -->
-            <div class="flex items-center gap-6 flex-wrap">
+            <!-- Link + Skills + Blog row -->
+            <div class="gap-4" style="display: flex; flex-direction: row">
+              <!-- Play button -->
               <a href="https://splendor.voltvoice.io" target="_blank"
-                 class="inline-block px-8 py-4 bg-purple-600 hover:bg-purple-500 text-white rounded-lg
-                        text-lg font-medium transition-colors whitespace-nowrap">
+                 class="rounded-2xl px-8 py-6 shadow-lg border border-gray-700 hover:border-purple-500 card-lift
+                        flex items-center justify-center text-white text-lg font-medium whitespace-nowrap"
+                 style="background-color: #1a1a24; flex: 1 1 0%">
                 Play Splendor
               </a>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Haskell</span>
-                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">React</span>
-                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">TypeScript</span>
-                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Docker</span>
-                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">WebSockets</span>
+
+              <!-- Blog link -->
+              <a hx-get="blog/vibe-coding-haskell.html" hx-target="#content" hx-push-url="/blog/vibe-coding-haskell"
+                 class="rounded-2xl px-8 py-6 shadow-lg border border-gray-700 hover:border-purple-500 card-lift cursor-pointer"
+                 style="background-color: #1a1a24; flex: 1 1 0%">
+                <p class="text-purple-400 text-3xl font-medium mb-3 text-center">Vibe Coding in Haskell &rarr;</p>
+                <p class="text-gray-500 text-2xl leading-relaxed">Things that slow down the junior engineer improve AI development speed.</p>
+              </a>
+
+              <!-- Tech grid -->
+              <div class="rounded-2xl p-6 shadow-lg border border-gray-700 hover:border-purple-500 card-lift"
+                   style="background-color: #1a1a24; flex: 1 1 0%">
+                <div class="grid gap-2" style="grid-template-columns: repeat(2, 1fr)">
+                  <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full text-center">Haskell</span>
+                  <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full text-center">React</span>
+                  <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full text-center">TypeScript</span>
+                  <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full text-center">Docker</span>
+                  <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full text-center">WebSockets</span>
+                  <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full text-center">Servant</span>
+                </div>
               </div>
             </div>
           </div>
@@ -134,14 +157,16 @@
         <div class="md:w-1/2 bg-gray-900 flex items-center order-2 md:order-1">
           <div class="p-10 md:p-16 flex flex-col justify-between h-full w-full">
             <div class="mb-8">
-              <h3 class="text-5xl font-semibold text-white mb-6">EvoFactory</h3>
-              <p class="text-gray-400 text-2xl leading-relaxed">
-                A real-time cell biology simulation game. Start as a single cell,
-                absorb nutrients, build organelles like mitochondria and ribosomes,
-                and evolve through a tech tree of biological upgrades. Core simulation
-                logic written in Rust and exposed to Godot 4 via GDExtension for
-                high-performance gameplay with rich 2D visuals.
-              </p>
+              <h3 class="text-5xl font-semibold text-white mb-6 text-center">EvoFactory</h3>
+              <div class="rounded-2xl p-8 shadow-lg border border-gray-700 hover:border-purple-500 card-lift" style="background-color: #1a1a24">
+                <p class="text-gray-400 text-2xl leading-relaxed">
+                  A real-time cell biology simulation game. Start as a single cell,
+                  absorb nutrients, build organelles like mitochondria and ribosomes,
+                  and evolve through a tech tree of biological upgrades. Core simulation
+                  logic written in Rust and exposed to Godot 4 via GDExtension for
+                  high-performance gameplay with rich 2D visuals.
+                </p>
+              </div>
             </div>
             <div class="flex items-center gap-6 flex-wrap">
               <span class="text-gray-500 text-lg italic">In development</span>
@@ -169,15 +194,17 @@
         <div class="md:w-1/2 bg-black flex items-center">
           <div class="p-10 md:p-16 flex flex-col justify-between h-full w-full">
             <div class="mb-8">
-              <h3 class="text-5xl font-semibold text-white mb-6">Mi-Pueblo</h3>
-              <p class="text-gray-400 text-2xl leading-relaxed">
-                A family location sharing app with real-time geofencing and group
-                management. Family members create circles, set safe zones, and
-                receive alerts when someone arrives or departs. Multi-language
-                support with an Elixir/Phoenix backend handling real-time PubSub,
-                a Flutter mobile client for iOS and Android, and PostGIS for
-                spatial queries and geofence computation.
-              </p>
+              <h3 class="text-5xl font-semibold text-white mb-6 text-center">Mi-Pueblo</h3>
+              <div class="rounded-2xl p-8 shadow-lg border border-gray-700 hover:border-purple-500 card-lift" style="background-color: #1a1a24">
+                <p class="text-gray-400 text-2xl leading-relaxed">
+                  A family location sharing app with real-time geofencing and group
+                  management. Family members create circles, set safe zones, and
+                  receive alerts when someone arrives or departs. Multi-language
+                  support with an Elixir/Phoenix backend handling real-time PubSub,
+                  a Flutter mobile client for iOS and Android, and PostGIS for
+                  spatial queries and geofence computation.
+                </p>
+              </div>
             </div>
             <div class="flex items-center gap-6 flex-wrap">
               <span class="text-gray-500 text-lg italic">In development</span>
@@ -198,15 +225,17 @@
         <div class="md:w-1/2 bg-gray-900 flex items-center order-2 md:order-1">
           <div class="p-10 md:p-16 flex flex-col justify-between h-full w-full">
             <div class="mb-8">
-              <h3 class="text-5xl font-semibold text-white mb-6">VoltVoice.io</h3>
-              <p class="text-gray-400 text-2xl leading-relaxed">
-                A Bitcoin donation platform for live streamers. Viewers send
-                tips via the Lightning Network with instant settlement and zero
-                custody risk. Powered by BTCPay Server for payment processing,
-                a Go/Gin backend for WebSocket streaming alerts, and a React/Vite
-                frontend with real-time donation overlays. Fully self-custody &mdash;
-                streamers control their own keys.
-              </p>
+              <h3 class="text-5xl font-semibold text-white mb-6 text-center">VoltVoice.io</h3>
+              <div class="rounded-2xl p-8 shadow-lg border border-gray-700 hover:border-purple-500 card-lift" style="background-color: #1a1a24">
+                <p class="text-gray-400 text-2xl leading-relaxed">
+                  A Bitcoin donation platform for live streamers. Viewers send
+                  tips via the Lightning Network with instant settlement and zero
+                  custody risk. Powered by BTCPay Server for payment processing,
+                  a Go/Gin backend for WebSocket streaming alerts, and a React/Vite
+                  frontend with real-time donation overlays. Fully self-custody &mdash;
+                  streamers control their own keys.
+                </p>
+              </div>
             </div>
             <div class="flex items-center gap-6 flex-wrap">
               <a href="https://voltvoice.io" target="_blank"
@@ -326,9 +355,21 @@
         <p class="text-lg text-gray-400 mb-10">Occasional writing about software, robotics, and cheesemaking.</p>
 
         <div class="space-y-4">
+          <a hx-get="blog/vibe-coding-haskell.html" hx-target="#content" hx-push-url="/blog/vibe-coding-haskell"
+             class="block rounded-2xl p-8 shadow-lg border border-gray-700 hover:border-purple-500 card-lift cursor-pointer"
+             style="background-color: #1a1a24">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+              <h3 class="text-xl font-semibold text-white">Vibe Coding in Haskell</h3>
+              <span class="text-base text-gray-500">July 2026</span>
+            </div>
+            <p class="text-gray-400 text-base mt-3">
+              Things that slow down the junior engineer improve AI development speed.
+            </p>
+          </a>
+
           <a hx-get="blog/resume-pipeline.html" hx-target="#content" hx-push-url="/blog/resume-pipeline"
-             class="block bg-gray-900 border border-gray-800 rounded-xl p-8
-                    hover:border-purple-700 transition-colors cursor-pointer">
+             class="block rounded-2xl p-8 shadow-lg border border-gray-700 hover:border-purple-500 card-lift cursor-pointer"
+             style="background-color: #1a1a24">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
               <h3 class="text-xl font-semibold text-white">Building a Resume Tailoring Pipeline with Claude Code</h3>
               <span class="text-base text-gray-500">July 2026</span>
@@ -336,6 +377,19 @@
             <p class="text-gray-400 text-base mt-3">
               A master resume, a slash command, an ATS validator, and a generate-validate loop
               that turns job postings into tailored PDFs.
+            </p>
+          </a>
+
+          <a hx-get="blog/example-post.html" hx-target="#content" hx-push-url="/blog/example-post"
+             class="block rounded-2xl p-8 shadow-lg border border-gray-700 hover:border-purple-500 card-lift cursor-pointer"
+             style="background-color: #1a1a24">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+              <h3 class="text-xl font-semibold text-white">Hello World: First Post</h3>
+              <span class="text-base text-gray-500">July 2025</span>
+            </div>
+            <p class="text-gray-400 text-base mt-3">
+              A first post to test the blog setup. Thoughts on building a personal site
+              with HTMX and Tailwind.
             </p>
           </a>
         </div>
