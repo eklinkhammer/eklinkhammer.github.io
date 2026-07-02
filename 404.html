@@ -1,3 +1,14 @@
-<script>
-  window.location.replace("/");
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    var path = window.location.pathname;
+    window.location.replace('/?page=' + encodeURIComponent(path));
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>

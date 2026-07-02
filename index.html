@@ -1,67 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>HTMX + Tailwind</title>
-		<script src="https://unpkg.com/htmx.org@1.9.6"></script>
-		<script defer>
-			function navigateHTMX(select) {
-				const selectedPage = select.value;
-				if (selectedPage) {
-					htmx.ajax("GET", selectedPage, "#content");
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric Klinkhammer</title>
+  <meta name="description" content="Software engineer, roboticist, and cheesemaker.">
+  <link rel="stylesheet" href="src/output.css">
+  <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+</head>
+<body id="site-shell" class="min-h-screen flex flex-col bg-gray-950 text-gray-300">
 
-				// Update the browser URL
-					history.pushState(null, "", selectedPage);
-					// select.setAttribute("hx-get", selectedPage);
-					// select.setAttribute("hx-push-url", selectedPage);
-					//htmx.process(select);
-				}
-			}
-		</script>
-		<link rel="stylesheet" href="src/output.css">
-	</head>
-	<body class="min-h-screen flex flex-col bg-gray-100">
-		<header class="bg-gradient-to-r bg-purple-900 via-purple-950 to-[#1A0B24] text-white p-6 fixed top-0 left-0 w-full">
-			<div class="max-w-4xl mx-auto">
-				<div>
-					<div class="text-left text-4xl font-bold tracking-wide drop-shadow-lg">
-						Eric Klinkhammer
-					</div>
-					<div class ="text-left text-l font-semibold tracking-wide drop-shadow-lg">
-						I write code, build robots, and make cheese with robots.
-					</div>
-				</div>
-				<div class="flex gap-4 mt-4">
-					<select id="nav-dropdown" class="bg-purple-700 text-white px-4 py-2 rounded"
-											  hx-get="" hx-target"#content" hx-push-url="" onchange="navigateHTMX(this)">
-						<option value="">My Active Projects</option>
-						<option value="cheesemaking.html">Cheesemaking Robots</option>
-						<option value="splendor.html">Splendor AI</option>
-					</select>
-				</div>
-			</div>
-		</header>
+  <!-- HEADER / NAV -->
+  <header class="sticky top-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
+    <nav class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" hx-get="pages/home.html" hx-target="#content" hx-push-url="/" hx-swap="innerHTML"
+         class="text-xl font-bold text-white tracking-tight">
+        Eric Klinkhammer
+      </a>
+      <!-- Desktop nav -->
+      <div class="hidden md:flex gap-8">
+        <a href="/" hx-get="pages/home.html" hx-target="#content"
+           hx-push-url="/" hx-swap="innerHTML"
+           class="nav-link text-gray-400 hover:text-purple-400 transition-colors">
+          Home
+        </a>
+        <a href="/projects" hx-get="pages/projects.html" hx-target="#content"
+           hx-push-url="/projects" hx-swap="innerHTML"
+           class="nav-link text-gray-400 hover:text-purple-400 transition-colors">
+          Projects
+        </a>
+        <a href="/honk" hx-get="pages/honk.html" hx-target="#content"
+           hx-push-url="/honk" hx-swap="innerHTML"
+           class="nav-link text-gray-400 hover:text-purple-400 transition-colors">
+          Honk
+        </a>
+        <a href="/blog" hx-get="pages/blog.html" hx-target="#content"
+           hx-push-url="/blog" hx-swap="innerHTML"
+           class="nav-link text-gray-400 hover:text-purple-400 transition-colors">
+          Blog
+        </a>
+      </div>
+      <!-- Mobile hamburger -->
+      <button id="menu-toggle" class="md:hidden text-gray-400 hover:text-white"
+              onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </nav>
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800 px-6 pb-4">
+      <a href="/" hx-get="pages/home.html" hx-target="#content"
+         hx-push-url="/" hx-swap="innerHTML"
+         onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+         class="block py-2 text-gray-400 hover:text-purple-400">Home</a>
+      <a href="/projects" hx-get="pages/projects.html" hx-target="#content"
+         hx-push-url="/projects" hx-swap="innerHTML"
+         onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+         class="block py-2 text-gray-400 hover:text-purple-400">Projects</a>
+      <a href="/honk" hx-get="pages/honk.html" hx-target="#content"
+         hx-push-url="/honk" hx-swap="innerHTML"
+         onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+         class="block py-2 text-gray-400 hover:text-purple-400">Honk</a>
+      <a href="/blog" hx-get="pages/blog.html" hx-target="#content"
+         hx-push-url="/blog" hx-swap="innerHTML"
+         onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+         class="block py-2 text-gray-400 hover:text-purple-400">Blog</a>
+    </div>
+  </header>
 
-		<main id="content" class="flex-grow mt-30 p-6 bg-gradient-to-r bg-gray-700 via gray-500 to-gray-700">
+  <!-- MAIN CONTENT -->
+  <main id="content" class="flex-grow max-w-5xl mx-auto w-full px-6 py-12">
+    <!-- Default homepage content (also served as pages/home.html) -->
+    <section class="flex flex-col items-center justify-center min-h-[60vh] text-center">
+      <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-4">
+        Eric Klinkhammer
+      </h1>
+      <p class="text-xl md:text-2xl font-light text-gray-400 mb-8 max-w-2xl">
+        I write code, build robots, and make cheese with robots.
+      </p>
+      <div class="flex gap-4">
+        <a hx-get="pages/projects.html" hx-target="#content" hx-push-url="/projects"
+           class="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-lg
+                  font-medium transition-colors cursor-pointer">
+          View Projects
+        </a>
+        <a href="https://github.com/eklinkhammer" target="_blank"
+           class="px-6 py-3 border border-gray-700 hover:border-purple-500
+                  text-gray-300 hover:text-white rounded-lg font-medium transition-colors">
+          GitHub
+        </a>
+      </div>
+    </section>
+  </main>
 
-			<h1 class="text-3xl font-bold underline">
-				Hello world!
-			</h1>
-		</main>
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-800 bg-gray-950">
+    <div class="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="text-sm text-gray-500">
+        &copy; 2025 Eric Klinkhammer. Built with HTMX &amp; Tailwind CSS.
+      </div>
+      <div class="flex gap-4">
+        <a href="https://github.com/eklinkhammer" target="_blank"
+           class="text-gray-500 hover:text-purple-400 transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
 
-		<footer class="bg-gradient-to-r bg-purple-900 via-purple-950 to-[#1A0B24] text-white p-6 fixed bottom-0 left-0 w-full">
-			<div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center">
+  <!-- Deep-link handler -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var path = window.location.pathname;
+      var params = new URLSearchParams(window.location.search);
+      var page = params.get('page') || (path !== '/' ? path : null);
 
-				<!-- Left: Copyright -->
-				<div class="text-sm">
-					© 2025 My Website. All rights reserved. Built with HTMX and Tailwind.
-				</div>
-				<!-- Right: Social Icons -->
-				<div>
-					Social icons go here
-				</div>
-		</footer>
-	</body>
+      if (page) {
+        var mapping = {
+          '/projects': 'pages/projects.html',
+          '/honk': 'pages/honk.html',
+          '/blog': 'pages/blog.html',
+        };
+        var target = mapping[page] || (page.startsWith('/blog/') ? page.slice(1) + '.html' : null);
+        if (target) {
+          htmx.ajax('GET', target, '#content');
+          history.replaceState(null, '', page);
+        }
+      }
+    });
+  </script>
+
+  <!-- Active nav link highlighting -->
+  <script>
+    document.body.addEventListener('htmx:afterSwap', function() {
+      document.querySelectorAll('.nav-link').forEach(function(link) {
+        var href = link.getAttribute('hx-push-url') || link.getAttribute('href');
+        if (href === window.location.pathname) {
+          link.classList.add('text-purple-400');
+          link.classList.remove('text-gray-400');
+        } else {
+          link.classList.remove('text-purple-400');
+          link.classList.add('text-gray-400');
+        }
+      });
+    });
+  </script>
+</body>
 </html>
-
