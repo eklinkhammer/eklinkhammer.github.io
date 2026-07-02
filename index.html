@@ -91,96 +91,142 @@
       </div>
 
       <!-- Splendor: image left (light), text right (dark) -->
-      <div class="flex flex-col md:flex-row">
-        <div class="md:w-1/2 bg-gray-800 flex items-center justify-center p-8">
+      <div class="flex flex-col md:flex-row" style="min-height: 44rem">
+        <div class="md:w-1/2 bg-gray-800 flex items-center justify-center p-4">
           <img src="images/splendor.png" alt="Splendor game screenshot"
-               class="w-full max-w-xl rounded-lg">
+               class="w-full rounded-lg">
         </div>
         <div class="md:w-1/2 bg-black flex items-center">
-          <div class="p-10 md:p-16">
-            <h3 class="text-3xl font-semibold text-white mb-4">Splendor</h3>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Haskell</span>
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">React</span>
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">TypeScript</span>
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Docker</span>
+          <div class="p-10 md:p-16 flex flex-col justify-between h-full w-full">
+            <!-- Description -->
+            <div class="mb-8">
+              <h3 class="text-5xl font-semibold text-white mb-6">Splendor</h3>
+              <p class="text-gray-400 text-2xl leading-relaxed">
+                A full implementation of the Renaissance-era gem trading board game.
+                Collect gems, purchase development cards, and attract nobles to earn
+                prestige points. Built with a Haskell game engine backend serving a
+                React TypeScript web client, with multiplayer lobbies, invite sessions,
+                and AI opponents. Fully containerized with Docker.
+              </p>
             </div>
-            <p class="text-gray-400 text-lg leading-relaxed">
-              Game engine and web client for the Splendor board game. Multiplayer online
-              play with lobbies and invite sessions. Haskell backend with a React TypeScript
-              frontend, containerized with Docker.
-            </p>
+
+            <!-- Link + Skills row -->
+            <div class="flex items-center gap-6 flex-wrap">
+              <a href="https://splendor.voltvoice.io" target="_blank"
+                 class="inline-block px-8 py-4 bg-purple-600 hover:bg-purple-500 text-white rounded-lg
+                        text-lg font-medium transition-colors whitespace-nowrap">
+                Play Splendor
+              </a>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Haskell</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">React</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">TypeScript</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Docker</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">WebSockets</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- EvoFactory: text left (dark), image right (light) -->
-      <div class="flex flex-col md:flex-row">
+      <div class="flex flex-col md:flex-row" style="min-height: 44rem">
         <div class="md:w-1/2 bg-gray-900 flex items-center order-2 md:order-1">
-          <div class="p-10 md:p-16">
-            <h3 class="text-3xl font-semibold text-white mb-4">EvoFactory</h3>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Godot 4</span>
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Rust</span>
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">GDExtension</span>
+          <div class="p-10 md:p-16 flex flex-col justify-between h-full w-full">
+            <div class="mb-8">
+              <h3 class="text-5xl font-semibold text-white mb-6">EvoFactory</h3>
+              <p class="text-gray-400 text-2xl leading-relaxed">
+                A real-time cell biology simulation game. Start as a single cell,
+                absorb nutrients, build organelles like mitochondria and ribosomes,
+                and evolve through a tech tree of biological upgrades. Core simulation
+                logic written in Rust and exposed to Godot 4 via GDExtension for
+                high-performance gameplay with rich 2D visuals.
+              </p>
             </div>
-            <p class="text-gray-400 text-lg leading-relaxed">
-              Real-time cell biology sim. Control a living cell, absorb resources, build
-              organelles, and evolve through a tech tree. Built with Godot 4 and Rust
-              via GDExtension.
-            </p>
+            <div class="flex items-center gap-6 flex-wrap">
+              <span class="text-gray-500 text-lg italic">In development</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Godot 4</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Rust</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">GDExtension</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">ECS</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="md:w-1/2 bg-gray-800 flex items-center justify-center p-8 order-1 md:order-2">
+        <div class="md:w-1/2 bg-gray-800 flex items-center justify-center p-4 order-1 md:order-2">
           <img src="images/evofactory.svg" alt="EvoFactory placeholder"
-               class="w-full max-w-xl rounded-lg">
+               class="w-full rounded-lg">
         </div>
       </div>
 
       <!-- Mi-Pueblo: image left (light), text right (dark) -->
-      <div class="flex flex-col md:flex-row">
-        <div class="md:w-1/2 bg-gray-800 flex items-center justify-center p-8">
+      <div class="flex flex-col md:flex-row" style="min-height: 44rem">
+        <div class="md:w-1/2 bg-gray-800 flex items-center justify-center p-4">
           <img src="images/mi-pueblo.svg" alt="Mi-Pueblo placeholder"
-               class="w-full max-w-xl rounded-lg">
+               class="w-full rounded-lg">
         </div>
         <div class="md:w-1/2 bg-black flex items-center">
-          <div class="p-10 md:p-16">
-            <h3 class="text-3xl font-semibold text-white mb-4">Mi-Pueblo</h3>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Elixir</span>
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Phoenix</span>
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Flutter</span>
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">PostGIS</span>
+          <div class="p-10 md:p-16 flex flex-col justify-between h-full w-full">
+            <div class="mb-8">
+              <h3 class="text-5xl font-semibold text-white mb-6">Mi-Pueblo</h3>
+              <p class="text-gray-400 text-2xl leading-relaxed">
+                A family location sharing app with real-time geofencing and group
+                management. Family members create circles, set safe zones, and
+                receive alerts when someone arrives or departs. Multi-language
+                support with an Elixir/Phoenix backend handling real-time PubSub,
+                a Flutter mobile client for iOS and Android, and PostGIS for
+                spatial queries and geofence computation.
+              </p>
             </div>
-            <p class="text-gray-400 text-lg leading-relaxed">
-              Family location sharing app with geofencing, group management, and
-              multi-language support. Elixir/Phoenix backend, Flutter mobile client,
-              PostGIS for spatial data.
-            </p>
+            <div class="flex items-center gap-6 flex-wrap">
+              <span class="text-gray-500 text-lg italic">In development</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Elixir</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Phoenix</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Flutter</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">PostGIS</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">PubSub</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- VoltVoice: text left (dark), image right (light) -->
-      <div class="flex flex-col md:flex-row">
+      <div class="flex flex-col md:flex-row" style="min-height: 44rem">
         <div class="md:w-1/2 bg-gray-900 flex items-center order-2 md:order-1">
-          <div class="p-10 md:p-16">
-            <h3 class="text-3xl font-semibold text-white mb-4">VoltVoice.io</h3>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">React</span>
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Go</span>
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Lightning</span>
-              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">BTCPay</span>
+          <div class="p-10 md:p-16 flex flex-col justify-between h-full w-full">
+            <div class="mb-8">
+              <h3 class="text-5xl font-semibold text-white mb-6">VoltVoice.io</h3>
+              <p class="text-gray-400 text-2xl leading-relaxed">
+                A Bitcoin donation platform for live streamers. Viewers send
+                tips via the Lightning Network with instant settlement and zero
+                custody risk. Powered by BTCPay Server for payment processing,
+                a Go/Gin backend for WebSocket streaming alerts, and a React/Vite
+                frontend with real-time donation overlays. Fully self-custody &mdash;
+                streamers control their own keys.
+              </p>
             </div>
-            <p class="text-gray-400 text-lg leading-relaxed">
-              Bitcoin donation platform for streamers via BTCPay Server and Lightning
-              Network. React/Vite frontend, Go/Gin backend, fully self-custody.
-            </p>
+            <div class="flex items-center gap-6 flex-wrap">
+              <a href="https://voltvoice.io" target="_blank"
+                 class="inline-block px-8 py-4 bg-purple-600 hover:bg-purple-500 text-white rounded-lg
+                        text-lg font-medium transition-colors whitespace-nowrap">
+                Visit VoltVoice
+              </a>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">React</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Go</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Lightning</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">BTCPay</span>
+                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">WebSockets</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="md:w-1/2 bg-gray-800 flex items-center justify-center p-8 order-1 md:order-2">
+        <div class="md:w-1/2 bg-gray-800 flex items-center justify-center p-4 order-1 md:order-2">
           <img src="images/voltvoice.svg" alt="VoltVoice placeholder"
-               class="w-full max-w-xl rounded-lg">
+               class="w-full rounded-lg">
         </div>
       </div>
     </section>
