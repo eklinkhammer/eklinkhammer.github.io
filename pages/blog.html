@@ -4,6 +4,19 @@
 
   <div class="space-y-4">
     <!-- Blog post entry -->
+    <a hx-get="blog/resume-pipeline.html" hx-target="#content" hx-push-url="/blog/resume-pipeline"
+       class="block bg-gray-900 border border-gray-800 rounded-xl p-6
+              hover:border-purple-700 transition-colors cursor-pointer">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+        <h3 class="text-lg font-semibold text-white">Building a Resume Tailoring Pipeline with Claude Code</h3>
+        <span class="text-sm text-gray-500">July 2026</span>
+      </div>
+      <p class="text-gray-400 text-sm mt-2">
+        A master resume, a slash command, an ATS validator, and a generate-validate loop
+        that turns job postings into tailored PDFs.
+      </p>
+    </a>
+
     <a hx-get="blog/example-post.html" hx-target="#content" hx-push-url="/blog/example-post"
        class="block bg-gray-900 border border-gray-800 rounded-xl p-6
               hover:border-purple-700 transition-colors cursor-pointer">
