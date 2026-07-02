@@ -12,36 +12,28 @@
 
   <!-- HEADER / NAV -->
   <header class="sticky top-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
-    <nav class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" hx-get="pages/home.html" hx-target="#content" hx-push-url="/" hx-swap="innerHTML"
-         class="text-xl font-bold text-white tracking-tight">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#hero"
+         class="text-2xl font-bold text-white tracking-tight">
         Eric Klinkhammer
       </a>
       <!-- Desktop nav -->
       <div class="hidden md:flex gap-8">
-        <a href="/" hx-get="pages/home.html" hx-target="#content"
-           hx-push-url="/" hx-swap="innerHTML"
-           class="nav-link text-gray-400 hover:text-purple-400 transition-colors">
-          Home
-        </a>
-        <a href="/projects" hx-get="pages/projects.html" hx-target="#content"
-           hx-push-url="/projects" hx-swap="innerHTML"
+        <a href="#projects"
            class="nav-link text-gray-400 hover:text-purple-400 transition-colors">
           Projects
         </a>
-        <a href="/honk" hx-get="pages/honk.html" hx-target="#content"
-           hx-push-url="/honk" hx-swap="innerHTML"
+        <a href="#honk"
            class="nav-link text-gray-400 hover:text-purple-400 transition-colors">
           Honk
         </a>
-        <a href="/blog" hx-get="pages/blog.html" hx-target="#content"
-           hx-push-url="/blog" hx-swap="innerHTML"
+        <a href="#appropos"
+           class="nav-link text-gray-400 hover:text-purple-400 transition-colors">
+          Appropos
+        </a>
+        <a href="#blog"
            class="nav-link text-gray-400 hover:text-purple-400 transition-colors">
           Blog
-        </a>
-        <a href="https://appropos.ai" target="_blank"
-           class="text-gray-400 hover:text-purple-400 transition-colors">
-          Appropos
         </a>
       </div>
       <!-- Mobile hamburger -->
@@ -55,55 +47,243 @@
     </nav>
     <!-- Mobile menu (hidden by default) -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800 px-6 pb-4">
-      <a href="/" hx-get="pages/home.html" hx-target="#content"
-         hx-push-url="/" hx-swap="innerHTML"
-         onclick="document.getElementById('mobile-menu').classList.add('hidden')"
-         class="block py-2 text-gray-400 hover:text-purple-400">Home</a>
-      <a href="/projects" hx-get="pages/projects.html" hx-target="#content"
-         hx-push-url="/projects" hx-swap="innerHTML"
+      <a href="#projects"
          onclick="document.getElementById('mobile-menu').classList.add('hidden')"
          class="block py-2 text-gray-400 hover:text-purple-400">Projects</a>
-      <a href="/honk" hx-get="pages/honk.html" hx-target="#content"
-         hx-push-url="/honk" hx-swap="innerHTML"
+      <a href="#honk"
          onclick="document.getElementById('mobile-menu').classList.add('hidden')"
          class="block py-2 text-gray-400 hover:text-purple-400">Honk</a>
-      <a href="/blog" hx-get="pages/blog.html" hx-target="#content"
-         hx-push-url="/blog" hx-swap="innerHTML"
+      <a href="#appropos"
+         onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+         class="block py-2 text-gray-400 hover:text-purple-400">Appropos</a>
+      <a href="#blog"
          onclick="document.getElementById('mobile-menu').classList.add('hidden')"
          class="block py-2 text-gray-400 hover:text-purple-400">Blog</a>
-      <a href="https://appropos.ai" target="_blank"
-         class="block py-2 text-gray-400 hover:text-purple-400">Appropos</a>
     </div>
   </header>
 
   <!-- MAIN CONTENT -->
-  <main id="content" class="flex-grow max-w-5xl mx-auto w-full px-6 py-12">
-    <!-- Default homepage content (also served as pages/home.html) -->
-    <section class="flex flex-col items-center justify-center min-h-[60vh] text-center">
-      <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-4">
+  <main id="content" class="flex-grow w-full">
+
+    <!-- Hero -->
+    <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-black">
+      <h1 class="text-8xl font-bold text-white tracking-tight mb-6 leading-none"
+          style="font-size: clamp(4.5rem, 10vw, 12rem)">
         Eric Klinkhammer
       </h1>
-      <p class="text-xl md:text-2xl font-light text-gray-400 mb-8 max-w-2xl">
+      <p class="text-2xl md:text-3xl font-light text-gray-400 mb-10 max-w-3xl">
         I write code, build robots, and make cheese with robots.
       </p>
       <div class="flex gap-4">
-        <a hx-get="pages/projects.html" hx-target="#content" hx-push-url="/projects"
-           class="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-lg
-                  font-medium transition-colors cursor-pointer">
-          View Projects
-        </a>
         <a href="https://github.com/eklinkhammer" target="_blank"
-           class="px-6 py-3 border border-gray-700 hover:border-purple-500
-                  text-gray-300 hover:text-white rounded-lg font-medium transition-colors">
+           class="px-8 py-4 border border-gray-700 hover:border-purple-500
+                  text-gray-300 hover:text-white rounded-lg text-lg font-medium transition-colors">
           GitHub
         </a>
       </div>
     </section>
+
+    <!-- Projects -->
+    <section id="projects" class="min-h-screen flex flex-col justify-center px-6 py-24 bg-gray-900">
+      <div class="max-w-7xl mx-auto w-full">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Projects</h2>
+        <p class="text-lg text-gray-400 mb-10">Things I'm building or have built.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <!-- Splendor Card -->
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8
+                      hover:border-purple-700 transition-colors">
+            <h3 class="text-2xl font-semibold text-white mb-3">Splendor</h3>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Haskell</span>
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">React</span>
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">TypeScript</span>
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Docker</span>
+            </div>
+            <p class="text-gray-400 text-base leading-relaxed">
+              Game engine and web client for the Splendor board game. Multiplayer online
+              play with lobbies and invite sessions. Haskell backend with a React TypeScript
+              frontend, containerized with Docker.
+            </p>
+          </div>
+
+          <!-- EvoFactory Card -->
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8
+                      hover:border-purple-700 transition-colors">
+            <h3 class="text-2xl font-semibold text-white mb-3">EvoFactory</h3>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Godot 4</span>
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Rust</span>
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">GDExtension</span>
+            </div>
+            <p class="text-gray-400 text-base leading-relaxed">
+              Real-time cell biology sim. Control a living cell, absorb resources, build
+              organelles, and evolve through a tech tree. Built with Godot 4 and Rust
+              via GDExtension.
+            </p>
+          </div>
+
+          <!-- Mi-Pueblo Card -->
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8
+                      hover:border-purple-700 transition-colors">
+            <h3 class="text-2xl font-semibold text-white mb-3">Mi-Pueblo</h3>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Elixir</span>
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Phoenix</span>
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Flutter</span>
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">PostGIS</span>
+            </div>
+            <p class="text-gray-400 text-base leading-relaxed">
+              Family location sharing app with geofencing, group management, and
+              multi-language support. Elixir/Phoenix backend, Flutter mobile client,
+              PostGIS for spatial data.
+            </p>
+          </div>
+
+          <!-- VoltVoice Card -->
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8
+                      hover:border-purple-700 transition-colors">
+            <h3 class="text-2xl font-semibold text-white mb-3">VoltVoice.io</h3>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">React</span>
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Go</span>
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Lightning</span>
+              <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">BTCPay</span>
+            </div>
+            <p class="text-gray-400 text-base leading-relaxed">
+              Bitcoin donation platform for streamers via BTCPay Server and Lightning
+              Network. React/Vite frontend, Go/Gin backend, fully self-custody.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Honk -->
+    <section id="honk" class="min-h-screen flex flex-col justify-center px-6 py-24 bg-black">
+      <div class="max-w-7xl mx-auto w-full">
+        <!-- Hero -->
+        <div class="mb-12">
+          <h2 class="text-5xl md:text-6xl font-bold text-white mb-4">Honk</h2>
+          <p class="text-xl md:text-2xl text-gray-400 max-w-3xl">
+            A driver appreciation platform. Think "Strava for truck drivers."
+          </p>
+        </div>
+
+        <!-- Overview -->
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-8 mb-8">
+          <h3 class="text-2xl font-semibold text-white mb-4">What is Honk?</h3>
+          <p class="text-gray-300 text-lg leading-relaxed mb-4">
+            Drivers share trips, mileage, and stats with social features &mdash; buddies,
+            leaderboards, and shared location. Verified driving history serves as
+            proof-of-work for reputation.
+          </p>
+          <p class="text-gray-300 text-lg leading-relaxed">
+            The platform also includes an ELD aggregator for real-time driver locations
+            and Hours of Service (HOS) data.
+          </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8">
+            <h4 class="text-xl font-semibold text-purple-400 mb-2">Trip Sharing</h4>
+            <p class="text-gray-400 text-base">Share routes, mileage, and driving stats with the community.</p>
+          </div>
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8">
+            <h4 class="text-xl font-semibold text-purple-400 mb-2">Social Features</h4>
+            <p class="text-gray-400 text-base">Buddies, leaderboards, and shared real-time location.</p>
+          </div>
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8">
+            <h4 class="text-xl font-semibold text-purple-400 mb-2">Verified History</h4>
+            <p class="text-gray-400 text-base">Driving history as proof-of-work for driver reputation.</p>
+          </div>
+          <div class="bg-gray-900 border border-gray-800 rounded-xl p-8">
+            <h4 class="text-xl font-semibold text-purple-400 mb-2">ELD Aggregator</h4>
+            <p class="text-gray-400 text-base">Real-time driver locations and HOS data from ELD devices.</p>
+          </div>
+        </div>
+
+        <!-- Looking to Hire -->
+        <div class="bg-gray-900 border border-purple-700 rounded-xl p-8 mb-8">
+          <h3 class="text-2xl font-semibold text-white mb-4">Looking to Hire a Driver?</h3>
+          <p class="text-gray-300 text-lg leading-relaxed mb-6">
+            Try our MCP-powered AI recruiter. It searches verified driver profiles,
+            matches qualifications to your requirements, and surfaces candidates
+            you'd never find on a job board.
+          </p>
+          <a href="https://recruiter-dev.honkchallenge.com" target="_blank"
+             class="inline-block px-8 py-4 bg-purple-600 hover:bg-purple-500 text-white rounded-lg
+                    text-lg font-medium transition-colors">
+            Try the Recruiter
+          </a>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-8">
+          <h3 class="text-2xl font-semibold text-white mb-4">Tech Stack</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Next.js 16</span>
+            <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">React Native</span>
+            <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Expo</span>
+            <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Convex</span>
+            <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Mapbox</span>
+            <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Better Auth</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appropos -->
+    <section id="appropos" class="min-h-screen flex flex-col items-center justify-center text-center px-6 py-24 bg-gray-900">
+      <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">Appropos</h2>
+      <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-3xl">
+        AI-powered software contracting. Building custom AI solutions.
+      </p>
+      <a href="https://appropos.ai" target="_blank"
+         class="inline-block px-8 py-4 bg-purple-600 hover:bg-purple-500 text-white rounded-lg
+                text-lg font-medium transition-colors">
+        Visit appropos.ai
+      </a>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="min-h-screen flex flex-col justify-center px-6 py-24 bg-black">
+      <div class="max-w-7xl mx-auto w-full">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Blog</h2>
+        <p class="text-lg text-gray-400 mb-10">Occasional writing about software, robotics, and cheesemaking.</p>
+
+        <div class="space-y-4">
+          <a hx-get="blog/resume-pipeline.html" hx-target="#content" hx-push-url="/blog/resume-pipeline"
+             class="block bg-gray-900 border border-gray-800 rounded-xl p-8
+                    hover:border-purple-700 transition-colors cursor-pointer">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+              <h3 class="text-xl font-semibold text-white">Building a Resume Tailoring Pipeline with Claude Code</h3>
+              <span class="text-base text-gray-500">July 2026</span>
+            </div>
+            <p class="text-gray-400 text-base mt-3">
+              A master resume, a slash command, an ATS validator, and a generate-validate loop
+              that turns job postings into tailored PDFs.
+            </p>
+          </a>
+        </div>
+
+        <div class="mt-10">
+          <a hx-get="pages/blog.html" hx-target="#content" hx-push-url="/blog"
+             class="text-purple-400 hover:text-purple-300 transition-colors cursor-pointer text-lg font-medium">
+            View all posts &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- FOOTER -->
   <footer class="border-t border-gray-800 bg-gray-950">
-    <div class="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="text-sm text-gray-500">
         &copy; 2025 Eric Klinkhammer. Built with HTMX &amp; Tailwind CSS.
       </div>
@@ -118,7 +298,7 @@
     </div>
   </footer>
 
-  <!-- Deep-link handler -->
+  <!-- Deep-link handler for backward compat -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var path = window.location.pathname;
@@ -126,34 +306,56 @@
       var page = params.get('page') || (path !== '/' ? path : null);
 
       if (page) {
-        var mapping = {
-          '/projects': 'pages/projects.html',
-          '/honk': 'pages/honk.html',
-          '/blog': 'pages/blog.html',
-        };
-        var target = mapping[page] || (page.startsWith('/blog/') ? page.slice(1) + '.html' : null);
-        if (target) {
+        // Blog post deep-links still load via HTMX
+        if (page.startsWith('/blog/')) {
+          var target = page.slice(1) + '.html';
           htmx.ajax('GET', target, '#content');
           history.replaceState(null, '', page);
+        } else {
+          // Section deep-links scroll to the anchor
+          var sectionMap = {
+            '/projects': 'projects',
+            '/honk': 'honk',
+            '/blog': 'blog',
+            '/appropos': 'appropos'
+          };
+          var sectionId = sectionMap[page];
+          if (sectionId) {
+            var el = document.getElementById(sectionId);
+            if (el) el.scrollIntoView();
+            history.replaceState(null, '', '/#' + sectionId);
+          }
         }
       }
     });
   </script>
 
-  <!-- Active nav link highlighting -->
+  <!-- Active nav link highlighting via IntersectionObserver -->
   <script>
-    document.body.addEventListener('htmx:afterSwap', function() {
-      document.querySelectorAll('.nav-link').forEach(function(link) {
-        var href = link.getAttribute('hx-push-url') || link.getAttribute('href');
-        if (href === window.location.pathname) {
-          link.classList.add('text-purple-400');
-          link.classList.remove('text-gray-400');
-        } else {
-          link.classList.remove('text-purple-400');
-          link.classList.add('text-gray-400');
-        }
+    (function() {
+      var sections = document.querySelectorAll('section[id]');
+      var navLinks = document.querySelectorAll('.nav-link');
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            navLinks.forEach(function(link) {
+              if (link.getAttribute('href') === '#' + entry.target.id) {
+                link.classList.add('text-purple-400');
+                link.classList.remove('text-gray-400');
+              } else {
+                link.classList.remove('text-purple-400');
+                link.classList.add('text-gray-400');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px' });
+
+      sections.forEach(function(section) {
+        observer.observe(section);
       });
-    });
+    })();
   </script>
 </body>
 </html>
