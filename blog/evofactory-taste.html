@@ -1,0 +1,133 @@
+<!-- Standalone redirect guard -->
+<script>
+  if (!document.getElementById('site-shell')) {
+    window.location.replace('/?page=/blog/evofactory-taste');
+  }
+</script>
+
+<article class="py-8 max-w-3xl">
+  <a hx-get="pages/blog.html" hx-target="#content" hx-push-url="/blog"
+     class="text-purple-400 hover:text-purple-300 text-sm mb-6 inline-block cursor-pointer">
+    &larr; Back to Blog
+  </a>
+  <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Where AI Falls Down: Taste</h1>
+  <p class="text-sm text-gray-500 mb-8">July 2026</p>
+
+  <div class="space-y-4 text-gray-300 leading-relaxed">
+    <p>
+      I wrote previously about how
+      <a hx-get="blog/vibe-coding-haskell.html" hx-target="#content" hx-push-url="/blog/vibe-coding-haskell"
+         class="text-purple-400 hover:text-purple-300 cursor-pointer">strict type systems and
+      aggressive compilers</a> make AI-assisted development work well. The argument was
+      simple: deterministic checks catch the categories of mistakes AI is most prone to,
+      and the tighter the feedback loop, the faster you go. I still believe that.
+    </p>
+    <p>
+      But building a game broke the pattern.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">EvoFactory</h2>
+    <p>
+      EvoFactory is a real-time cell biology simulation. You control a single cell in an
+      infinite procedurally generated world, absorb resources, build organelles, set up
+      gene regulation rules to automate production, and unlock a tech tree. The core
+      simulation&mdash;resource spawning, crafting, particle physics, rule
+      evaluation&mdash;is written in Rust and exposed to Godot 4 via GDExtension. The
+      rendering and UI are GDScript.
+    </p>
+    <p>
+      The Rust side is well-suited to AI development. Types enforce that a zymase can
+      only process glucose, that mRNA crafting consumes the right number of amino acids,
+      that gene regulation rules reference valid metrics. The compiler catches structural
+      errors. Integration tests verify the data contracts between Rust and Godot. When
+      I ask the AI to add a new organelle type or a new tech tree node, the build-test
+      loop keeps it honest.
+    </p>
+    <p>
+      The problem is everything else.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">What Tests Can't See</h2>
+    <p>
+      A game is not an API. The thing that matters most&mdash;whether it feels right to
+      play&mdash;is the thing that's hardest to pin down in an assertion.
+    </p>
+    <p>
+      My test suite can verify that the interior view renders the correct number of
+      particles, that drag-and-drop collision detection triggers at the right distance,
+      that the tech panel reports the right progress values. It can even run headless
+      in CI. What it cannot tell me is whether the cell's movement feels sluggish, whether
+      the resource distribution makes exploration rewarding, whether the gene regulation
+      panel is intuitive, or whether the dimetric projection looks right when you scroll
+      to the edge of a chunk boundary.
+    </p>
+    <p>
+      These are taste problems. They're the gap between "correct" and "good."
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">The Regression Problem</h2>
+    <p>
+      In a backend system, regression means something broke&mdash;a function returns the
+      wrong value, an endpoint throws an error, a test fails. You can detect it
+      mechanically. In a game, regression often means something got worse. The particle
+      diffusion constant changed and now the interior view feels frantic. The camera
+      interpolation was adjusted and now panning feels floaty. A rendering refactor
+      changed the draw order and now organelle tooltips appear behind the membrane.
+    </p>
+    <p>
+      None of these are bugs in the traditional sense. The code is correct. The tests
+      pass. The game is just worse.
+    </p>
+    <p>
+      I've written aggressive e2e tests for EvoFactory&mdash;headless GDScript tests that
+      exercise the full Rust-to-Godot pipeline, checking array sizes, state transitions,
+      and mutation contracts. They catch real problems. But they are structurally blind to
+      the class of regressions that matter most in a game. You can assert that the camera
+      position is a number. You cannot assert that the camera feels good.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">AI and Taste</h2>
+    <p>
+      This is where the junior engineer analogy breaks down, or maybe where it's most
+      accurate. Junior engineers can write correct code that makes the product worse. They
+      can refactor a UI component and make it technically cleaner while destroying the
+      visual rhythm. They can "fix" a slow animation by removing the easing function.
+      They can add a feature that's well-implemented and completely wrong for the user
+      experience.
+    </p>
+    <p>
+      AI does all of these things, but with less awareness. When I ask Claude to add a
+      tutorial overlay to EvoFactory, it produces a working tutorial system&mdash;staged
+      hints, dismissable panels, correct state tracking. What it doesn't do is consider
+      whether the tutorial interrupts gameplay flow, whether the hint text is the right
+      size relative to the game world, or whether the overlay color clashes with the
+      resource particles. These decisions require seeing the game, playing the game,
+      caring about how the game feels.
+    </p>
+    <p>
+      The model has no eyes. It can reason about code, but it can't experience what the
+      code produces.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">What Still Works</h2>
+    <p>
+      The strict-compiler thesis isn't wrong&mdash;it's incomplete. For EvoFactory's Rust
+      simulation core, the approach works exactly as well as it did for Splendor's Haskell
+      engine. Types catch structural errors. Tests catch logical errors. The build loop
+      keeps the AI from introducing mechanical bugs.
+    </p>
+    <p>
+      But the simulation core is maybe 40% of what makes a game a game. The rest is
+      rendering, input handling, animation timing, visual feedback, spatial relationships,
+      sound, pacing&mdash;all the things that add up to feel. And feel is a human judgment
+      that no test suite I know how to write can automate.
+    </p>
+    <p>
+      For now, my workflow is split. I let the AI drive the simulation logic, the data
+      layer, the serialization, the build pipeline&mdash;anything where correctness is
+      well-defined and mechanically verifiable. For the visual and experiential layer,
+      I write the code myself or review every AI-generated change by playing the game.
+      There's no shortcut. The only test for taste is a human with taste.
+    </p>
+  </div>
+</article>

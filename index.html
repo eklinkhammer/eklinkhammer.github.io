@@ -168,14 +168,22 @@
                 </p>
               </div>
             </div>
-            <div class="flex items-center gap-6 flex-wrap">
-              <span class="text-gray-500 text-lg italic">In development</span>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Godot 4</span>
-                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Rust</span>
-                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">GDExtension</span>
-                <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">ECS</span>
+            <div class="flex flex-col md:flex-row gap-4">
+              <div class="flex items-center gap-6 flex-wrap">
+                <span class="text-gray-500 text-lg italic">In development</span>
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Godot 4</span>
+                  <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">Rust</span>
+                  <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">GDExtension</span>
+                  <span class="text-sm px-3 py-1 bg-purple-900/40 text-purple-300 rounded-full">ECS</span>
+                </div>
               </div>
+              <a hx-get="blog/evofactory-taste.html" hx-target="#content" hx-push-url="/blog/evofactory-taste"
+                 class="rounded-2xl px-8 py-6 shadow-lg border border-gray-700 hover:border-purple-500 card-lift cursor-pointer"
+                 style="background-color: #1a1a24">
+                <p class="text-purple-400 text-lg font-medium mb-2">AI &amp; Game Design &rarr;</p>
+                <p class="text-gray-500 text-sm">Tests catch correctness. They can't catch whether a game feels good to play.</p>
+              </a>
             </div>
           </div>
         </div>
