@@ -171,6 +171,22 @@
       standing between an AI and your codebase.
     </p>
 
+    <h2 class="text-2xl font-bold text-white pt-6">The Tradeoff</h2>
+    <p>
+      Haskell's compilation times are not fast. A full rebuild of the three-package project
+      takes long enough that git worktrees&mdash;the standard approach for parallelizing
+      AI-driven development across multiple branches&mdash;aren't practical. Each worktree
+      needs its own build cache, which means each one pays the full compilation cost from
+      scratch. That kills the speed advantage worktrees are supposed to provide.
+    </p>
+    <p>
+      It works anyway because these side projects live as single terminal instances alongside
+      my main work. I kick off a build, switch to something else, come back when it's done.
+      The workflow is sequential rather than parallel, but for a side project that's fine.
+      You're not trying to maximize throughput&mdash;you're trying to make steady progress
+      in the gaps between other things.
+    </p>
+
     <h2 class="text-2xl font-bold text-white pt-6">The Takeaway</h2>
     <p>
       The counterintuitive lesson: the more deterministic checks you put in the AI's way,
