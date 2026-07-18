@@ -262,9 +262,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <h3 class="text-2xl font-bold mb-3">Meeting Minutes</h3>
-              <div class="w-full h-64 bg-card rounded-2xl border-2 border-border flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-foreground-secondary/30"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-              </div>
+              <img src="images/meetings.png" alt="Meeting Minutes" class="w-full h-64 object-cover rounded-2xl border-2 border-border">
             </div>
             <div class="space-y-4">
               <div class="bg-card border border-border rounded-2xl p-6 hover:bg-card-hover hover:border-border-hover transition-all duration-300">
@@ -274,7 +272,7 @@
                   </div>
                   <div>
                     <h4 class="text-lg font-semibold mb-1">About</h4>
-                    <p class="text-foreground-secondary text-sm">Automated meeting transcription and summary generation. Turns recordings into structured notes with action items.</p>
+                    <p class="text-foreground-secondary text-sm">Transforms board meeting recordings into formal meeting minutes. Transcribes audio with speaker diarization to identify who said what, then uses AI to generate structured minutes with attendees, motions, votes, and action items.</p>
                   </div>
                 </div>
               </div>
@@ -286,7 +284,11 @@
                   <div>
                     <h4 class="text-lg font-semibold mb-1">Tech Stack</h4>
                     <div class="flex flex-wrap gap-3 mt-1">
-                      <span class="text-sm px-3 py-1 rounded-full bg-primary/10 text-primary">TBD</span>
+                      <span class="text-sm px-3 py-1 rounded-full bg-primary/10 text-primary">Python</span>
+                      <span class="text-sm px-3 py-1 rounded-full bg-primary/10 text-primary">FastAPI</span>
+                      <span class="text-sm px-3 py-1 rounded-full bg-primary/10 text-primary">WhisperX</span>
+                      <span class="text-sm px-3 py-1 rounded-full bg-primary/10 text-primary">pyannote</span>
+                      <span class="text-sm px-3 py-1 rounded-full bg-primary/10 text-primary">Claude</span>
                     </div>
                   </div>
                 </div>
