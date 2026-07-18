@@ -50,7 +50,7 @@
 <body class="antialiased bg-background text-foreground">
 
   <!-- HEADER / NAV -->
-  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-5 bg-background border-b border-border">
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-5 border-b border-border" style="background-color: #0a0a0f;">
     <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
       <nav class="flex items-center justify-between">
         <a href="#" class="relative group cursor-pointer">
@@ -537,14 +537,6 @@
     </div>
   </footer>
 
-  <!-- Blog post overlay (loaded via ?page= param) -->
-  <div id="blog-overlay" class="hidden fixed inset-0 z-[60] bg-background overflow-y-auto">
-    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8">
-      <a href="/" class="text-primary hover:text-primary-hover text-sm mb-6 inline-block">&larr; Back to Home</a>
-      <div id="blog-content"></div>
-    </div>
-  </div>
-
   <div id="site-shell"></div>
   <script>
     (function() {
@@ -555,8 +547,13 @@
         fetch(file)
           .then(function(r) { return r.text(); })
           .then(function(html) {
-            document.getElementById('blog-content').innerHTML = html;
-            document.getElementById('blog-overlay').classList.remove('hidden');
+            html = html.replace(/<script>[\s\S]*?<\/script>/, '');
+            var main = document.querySelector('main');
+            main.innerHTML = '<div style="padding-top:7rem;padding-bottom:4rem;max-width:48rem;margin:0 auto;padding-left:1rem;padding-right:1rem;">'
+              + html
+              + '</div>';
+            document.querySelector('footer').style.display = 'none';
+            window.scrollTo({top: 0, behavior: 'instant'});
           });
       }
     })();
