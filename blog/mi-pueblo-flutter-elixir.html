@@ -1,0 +1,129 @@
+<!-- Standalone redirect guard -->
+<script>
+  if (!document.getElementById('site-shell')) {
+    window.location.replace('/?page=/blog/mi-pueblo-flutter-elixir');
+  }
+</script>
+
+<article class="py-8 max-w-3xl">
+  <a hx-get="pages/blog.html" hx-target="#content" hx-push-url="/blog"
+     class="text-purple-400 hover:text-purple-300 text-sm mb-6 inline-block cursor-pointer">
+    &larr; Back to Blog
+  </a>
+  <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Do You Need to Know the Language for It to Be the Best Tool for the Job?</h1>
+  <p class="text-sm text-gray-500 mb-8">July 2026</p>
+
+  <div class="space-y-4 text-gray-300 leading-relaxed">
+    <p>
+      Mi Pueblo is a family location-sharing app. It's in production, used by my family,
+      and built with Flutter and Elixir. I knew neither language when I started.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">Why These Tools</h2>
+    <p>
+      I wanted to test Flutter for cross-platform mobile. One codebase for iOS and Android,
+      with hot reload and a widget-based UI that doesn't require the build-test cycle that
+      React Native's Expo workflow essentially demands. For the backend, Elixir and Phoenix
+      have first-class real-time support&mdash;Phoenix Channels and Presence tracking are
+      built into the framework, not bolted on. For an app whose core feature is live location
+      sharing, that matters.
+    </p>
+    <p>
+      Both were worth trying on technical merits. The catch was I didn't know either of them.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">What the App Does</h2>
+    <p>
+      The short version: real-time location sharing for a family group. The longer version
+      is that building a "simple" location app turns out to require a surprising amount of
+      infrastructure.
+    </p>
+    <ul class="list-disc list-inside space-y-2 pl-2">
+      <li><strong class="text-white">Real-time location</strong> &mdash; live position
+          updates via Phoenix Channels, with Presence tracking for who's online</li>
+      <li><strong class="text-white">Geofences</strong> &mdash; define areas (home, school,
+          work) and get push notifications on enter/exit events</li>
+      <li><strong class="text-white">Group management</strong> &mdash; invite codes,
+          family groups, per-member permissions</li>
+      <li><strong class="text-white">Spatial queries</strong> &mdash; PostGIS for
+          geofence containment checks and distance calculations</li>
+      <li><strong class="text-white">Background tracking</strong> &mdash; platform-specific
+          background location services on both iOS and Android</li>
+      <li><strong class="text-white">Push notifications</strong> &mdash; Firebase Cloud
+          Messaging for geofence alerts</li>
+      <li><strong class="text-white">Subscription tiers</strong> &mdash; RevenueCat
+          integration for premium features</li>
+    </ul>
+    <p>
+      Around 127 commits, deployed and actively used by the family.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">AI as Language Expert</h2>
+    <p>
+      Here's what changed with AI in the loop: the language stopped being the bottleneck.
+      The AI knows Flutter widget composition and Riverpod state management patterns. It knows
+      Elixir's pipe operator, Phoenix context conventions, and Ecto changeset validation. It
+      knows how to structure a GenServer for background geofence processing and how to set up
+      a Phoenix Channel for bidirectional real-time communication.
+    </p>
+    <p>
+      I don't know any of that. Or rather&mdash;I didn't when I started, and I still don't
+      know it the way I know Python or C++. But it turns out that doesn't matter as much as
+      I would have expected.
+    </p>
+    <p>
+      My job shifted from writing code to making product and architecture decisions. What
+      should the data model look like? How should real-time updates flow from device to server
+      to other devices? What's the right UX for geofence notifications&mdash;instant push, or
+      batched with a dwell time to avoid false positives? How should background location
+      tracking balance battery life against position accuracy?
+    </p>
+    <p>
+      These are the decisions that actually determine whether the app is good. The AI handles
+      the syntax and idioms. I handle the design.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">Two Modes of AI-Assisted Development</h2>
+    <p>
+      This is a different relationship with AI than what I described in the
+      <a hx-get="blog/vibe-coding-haskell.html" hx-target="#content" hx-push-url="/blog/vibe-coding-haskell"
+         class="text-purple-400 hover:text-purple-300 cursor-pointer">Haskell post</a>.
+      With Splendor, I knew the language deeply. I used Haskell's strict type system as a
+      guardrail&mdash;the compiler caught the AI's mistakes before they could propagate.
+      I was the language expert; the AI was the fast-but-fallible coder.
+    </p>
+    <p>
+      With Mi Pueblo, the roles are inverted. I don't know Flutter or Elixir well enough to
+      catch idiomatic mistakes by reading the code. Instead, I'm relying on the AI for
+      language expertise while I provide the product direction. The AI is the one who knows
+      that a Riverpod <code class="text-purple-400">AsyncNotifier</code> is the right pattern
+      for managing location state, or that an Elixir
+      <code class="text-purple-400">GenServer</code> should handle geofence evaluation on
+      the server side rather than the client.
+    </p>
+    <p>
+      Two different modes. In one, I'm the expert and the AI is the coder. In the other,
+      the AI is the expert and I'm the product owner. Both work.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">The Takeaway</h2>
+    <p>
+      For most of my career, tool selection has been filtered through "what do I already
+      know?" You pick React because you know React, even when a different framework might
+      fit the problem better. You reach for Python because it's comfortable, even when the
+      runtime characteristics don't match what you need. The switching cost of learning a
+      new language or framework is high enough that you default to the familiar.
+    </p>
+    <p>
+      AI changes that calculus. The switching cost drops dramatically when you have an AI
+      that already knows the target language's patterns, idioms, and ecosystem. You can
+      actually try the tool that fits the problem&mdash;Flutter for cross-platform mobile,
+      Elixir for real-time systems&mdash;instead of defaulting to whatever you already know.
+    </p>
+    <p>
+      That doesn't mean language choice is irrelevant. It means the relevant criteria shift.
+      Instead of "what do I know?" the question becomes "what fits the problem?" And that's
+      how it probably should have been all along.
+    </p>
+  </div>
+</article>
