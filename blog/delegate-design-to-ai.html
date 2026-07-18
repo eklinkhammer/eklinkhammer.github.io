@@ -1,0 +1,98 @@
+<!-- Standalone redirect guard -->
+<script>
+  if (!document.getElementById('site-shell')) {
+    window.location.replace('/?page=/blog/delegate-design-to-ai');
+  }
+</script>
+
+<article class="py-8 max-w-3xl">
+  <a href="/?page=/pages/blog"
+     class="text-purple-400 hover:text-purple-300 text-sm mb-6 inline-block cursor-pointer">
+    &larr; Back to Blog
+  </a>
+  <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">How to Delegate Design to AI</h1>
+  <p class="text-sm text-gray-500 mb-8">July 2026</p>
+
+  <div class="space-y-4 text-gray-300 leading-relaxed">
+    <p>
+      When I needed a personal site, I didn't design it. I asked Claude to generate four
+      completely different layouts and picked the one that looked best. Then I iterated from there.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">The Technique</h2>
+    <p>
+      Instead of describing exactly what you want&mdash;which requires you to already know
+      what you want&mdash;ask for breadth. &ldquo;Give me four different arrangements of a
+      project card grid.&rdquo; &ldquo;Show me three navigation layouts.&rdquo; The AI is fast
+      enough that generating multiple options costs almost nothing compared to the time you'd
+      spend trying to articulate a single perfect spec.
+    </p>
+    <p>
+      The key insight is that specification is hard. Most people can't describe a good layout
+      from scratch. But almost everyone can look at four options and point to the one that
+      feels right. You're replacing the hardest part of the process&mdash;translating a vague
+      aesthetic sense into precise instructions&mdash;with something humans are naturally good
+      at: comparison and selection.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">Why This Works</h2>
+    <p>
+      Design is a domain where you know it when you see it, but can't always describe it
+      upfront. Generating options turns the problem from &ldquo;describe what you want&rdquo;
+      into &ldquo;react to what you see.&rdquo; The latter is much easier and produces better
+      results because you're making decisions with concrete artifacts in front of you, not
+      abstract specifications.
+    </p>
+    <p>
+      There's a reason architects build physical models and designers create mockups before
+      committing to a direction. The artifact externalizes the decision. You stop trying to
+      simulate the outcome in your head and start responding to something real. AI just makes
+      generating those artifacts nearly free.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">How This Site Was Built</h2>
+    <p>
+      This site started as four different HTML page layouts. I picked the structure I liked,
+      then iterated section by section&mdash;hero, project cards, blog layout&mdash;each time
+      asking for multiple options and selecting. The result is something I'm happy with that
+      I never could have specified from scratch.
+    </p>
+    <p>
+      The workflow looked like this: generate options, pick the best one, use it as the
+      starting point for the next round. Each round narrowed the design space. By the third
+      or fourth iteration, I had a site that felt coherent and intentional, even though no
+      single version was designed from a unified vision. It emerged from a series of
+      comparative judgments.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">When It Doesn't Work</h2>
+    <p>
+      This approach works for visual and structural decisions where taste matters. It's less
+      useful for logic, algorithms, or anything with clear correctness criteria. You don't
+      need four versions of a sorting function. You need four versions of a landing page.
+    </p>
+    <p>
+      The dividing line is whether the decision is about preference or correctness. If there's
+      a right answer, just ask for the right answer. If the answer depends on what looks good,
+      feels right, or fits a vague aesthetic&mdash;generate options and choose. The technique
+      is powerful precisely because it targets decisions that are hard to make analytically
+      but easy to make visually.
+    </p>
+
+    <h2 class="text-2xl font-bold text-white pt-6">Connection to the Series</h2>
+    <p>
+      This is another facet of the same theme running through these posts. In the
+      <a href="/?page=/blog/evofactory-taste" class="text-purple-400 hover:text-purple-300">taste post</a>,
+      I argued that human judgment is the irreplaceable piece&mdash;AI can generate, but
+      someone has to decide what's good. Design delegation is that principle turned into a
+      workflow: AI generates the space, human navigates it.
+    </p>
+    <p>
+      And in the
+      <a href="/?page=/blog/vibe-coding-haskell" class="text-purple-400 hover:text-purple-300">Haskell post</a>,
+      the lesson was that AI needs different management strategies for different kinds of work.
+      Structural guardrails for correctness. Taste-driven selection for aesthetics. The mode
+      of collaboration should match the nature of the decision.
+    </p>
+  </div>
+</article>
