@@ -352,37 +352,60 @@
           <hr style="border: none; height: 4px; background: var(--secondary); margin: 3rem 0; border-radius: 2px;">
 
           <!-- Cutting Boards -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-              <h3 class="text-2xl font-bold mb-3">Cutting Boards</h3>
-              <div class="w-full h-64 bg-card rounded-2xl border-2 border-border flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-foreground-secondary/30"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Cutting Boards</h3>
+            <p class="text-foreground-secondary mb-8 text-lg">I also enjoy working with real things. Each board is individually designed and handcrafted from hardwoods like walnut, maple, cherry, and purpleheart.</p>
+
+            <style>
+              .carousel-track {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+                padding: 2rem 0;
+              }
+              .carousel-item {
+                flex: 1 1 0;
+                max-width: 12rem;
+                height: 16rem;
+                border-radius: 1rem;
+                overflow: hidden;
+                border: 2px solid var(--border);
+                cursor: pointer;
+                transition: all 0.4s ease;
+                position: relative;
+              }
+              .carousel-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+              }
+              .carousel-item:hover {
+                flex: 2.5 1 0;
+                max-width: 28rem;
+                border-color: var(--primary);
+                box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+              }
+              .carousel-item:hover img {
+                transform: scale(1.05);
+              }
+            </style>
+            <div class="carousel-track">
+              <div class="carousel-item">
+                <img src="images/board-hexagon.jpg" alt="Hexagon cutting board">
               </div>
-            </div>
-            <div class="space-y-4">
-              <div class="bg-card border border-border rounded-2xl p-6 hover:bg-card-hover hover:border-border-hover transition-all duration-300">
-                <div class="flex items-start gap-4">
-                  <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-secondary"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path></svg>
-                  </div>
-                  <div>
-                    <h4 class="text-lg font-semibold mb-1">About</h4>
-                    <p class="text-foreground-secondary text-sm">Handcrafted hardwood cutting boards — woodworking meets functional design. Each board is individually designed and built from sustainably sourced hardwoods.</p>
-                  </div>
-                </div>
+              <div class="carousel-item">
+                <img src="images/board-striped.jpg" alt="Striped cutting board">
               </div>
-              <div class="bg-card border border-border rounded-2xl p-6 hover:bg-card-hover hover:border-border-hover transition-all duration-300">
-                <div class="flex items-start gap-4">
-                  <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-secondary"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                  </div>
-                  <div>
-                    <h4 class="text-lg font-semibold mb-1">Tech Stack</h4>
-                    <div class="flex flex-wrap gap-3 mt-1">
-                      <span class="text-sm px-3 py-1 rounded-full bg-primary/10 text-primary">TBD</span>
-                    </div>
-                  </div>
-                </div>
+              <div class="carousel-item">
+                <img src="images/board-checker.jpg" alt="Checker cutting board">
+              </div>
+              <div class="carousel-item">
+                <img src="images/board-chaotic.jpg" alt="Chaotic cutting board">
+              </div>
+              <div class="carousel-item">
+                <img src="images/board-walnut.jpg" alt="Walnut cutting board">
               </div>
             </div>
           </div>
